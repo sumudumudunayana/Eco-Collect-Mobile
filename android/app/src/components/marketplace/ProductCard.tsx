@@ -3,12 +3,14 @@ import {
   View,
   Text,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 
 type Props = {
   title: string;
   price: string;
   category: string;
+  image: string;
   onPress: () => void;
 };
 
@@ -16,6 +18,7 @@ const ProductCard = ({
   title,
   price,
   category,
+  image,
   onPress,
 }: Props) => {
   return (
@@ -29,16 +32,15 @@ const ProductCard = ({
         elevation: 4,
       }}>
 
-      <View
+      <Image
+        source={{ uri: image }}
+        resizeMode="cover"
         style={{
-          height: 130,
-          backgroundColor: '#E8F5E9',
+          width: '100%',
+          height: 170,
           borderRadius: 12,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Text style={{ fontSize: 45 }}>♻️</Text>
-      </View>
+        }}
+      />
 
       <Text
         style={{
@@ -66,7 +68,6 @@ const ProductCard = ({
         }}>
         {price}
       </Text>
-
     </TouchableOpacity>
   );
 };
