@@ -1,9 +1,11 @@
 import React from 'react';
 import {
   TouchableOpacity,
-  Text,
   View,
+  Text,
 } from 'react-native';
+
+import styles from '../../styles/common/DashboardCardStyles';
 
 type Props = {
   icon: string;
@@ -18,36 +20,22 @@ const DashboardCard = ({
 }: Props) => {
   return (
     <TouchableOpacity
-      onPress={onPress}
-      style={{
-        width: '47%',
-        backgroundColor: '#fff',
-        borderRadius: 15,
-        padding: 20,
-        marginVertical: 10,
-        elevation: 5,
-        alignItems: 'center',
-      }}>
+      activeOpacity={0.9}
+      style={styles.card}
+      onPress={onPress}>
 
-      <Text
-        style={{
-          fontSize: 40,
-        }}>
-        {icon}
+      <View style={styles.iconContainer}>
+        <Text style={styles.icon}>
+          {icon}
+        </Text>
+      </View>
+
+      <Text style={styles.title}>
+        {title}
       </Text>
 
-      <View
-        style={{
-          height: 10,
-        }}
-      />
-
-      <Text
-        style={{
-          fontWeight: '700',
-          textAlign: 'center',
-        }}>
-        {title}
+      <Text style={styles.subtitle}>
+        Tap to view
       </Text>
 
     </TouchableOpacity>
