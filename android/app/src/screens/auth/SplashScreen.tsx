@@ -1,64 +1,74 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  ActivityIndicator,
+  StatusBar,
+} from 'react-native';
+
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '../../navigation/AuthNavigator';
+import { useAuth } from '../../context/AuthContext';
+
+import styles from '../../styles/auth/SplashScreenStyles';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'Splash'>;
 
 const SplashScreen = ({ navigation }: Props) => {
+  const { user, loading } = useAuth();
+
   useEffect(() => {
+    if (loading) {
+      return;
+    }
+
     const timer = setTimeout(() => {
-      navigation.replace('Login');
-    }, 2500);
+      if (!user) {
+        navigation.replace('Login');
+      } else if (user.role === 'collector') {
+        navigation.replace('CollectorDashboard');
+      } else {
+        navigation.replace('Dashboard');
+      }
+    }, 2000);
 
     return () => clearTimeout(timer);
-  }, [navigation]);
+  }, [loading, user, navigation]);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.logo}>🌿</Text>
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        backgroundColor="#2E7D32"
+        barStyle="light-content"
+      />
 
-      <Text style={styles.title}>EcoCollect</Text>
+      <View style={styles.logoContainer}>
+        <Text style={styles.logo}>🌿</Text>
 
-      <Text style={styles.subtitle}>
-        Smart Waste Management System
-      </Text>
+        <Text style={styles.title}>EcoCollect</Text>
 
-      <Text style={styles.loading}>Loading...</Text>
-    </View>
+        <Text style={styles.tagline}>
+          Smart Waste Management System
+        </Text>
+      </View>
+
+      <View style={styles.footer}>
+        <ActivityIndicator
+          size="large"
+          color="#FFFFFF"
+        />
+
+        <Text style={styles.loadingText}>
+          Loading...
+        </Text>
+
+        <Text style={styles.version}>
+          Version 1.0.0
+        </Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
 export default SplashScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#2E7D32',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  logo: {
-    fontSize: 80,
-    marginBottom: 20,
-  },
-
-  title: {
-    color: '#fff',
-    fontSize: 34,
-    fontWeight: 'bold',
-  },
-
-  subtitle: {
-    color: '#E8F5E9',
-    fontSize: 16,
-    marginTop: 8,
-  },
-
-  loading: {
-    color: '#fff',
-    marginTop: 60,
-    fontSize: 18,
-  },
-});
