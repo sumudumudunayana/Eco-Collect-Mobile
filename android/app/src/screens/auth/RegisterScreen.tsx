@@ -55,64 +55,43 @@ const RegisterScreen = ({ navigation }: Props) => {
       Alert.alert('Success', 'Registration completed successfully.');
 
       navigation.goBack();
-
     } catch (error: any) {
-
       console.log('REGISTER ERROR:', error);
       console.log('REGISTER RESPONSE:', error?.response?.data);
 
       Alert.alert(
         'Registration Failed',
         error?.response?.data?.message ||
-        error.message ||
-        'Something went wrong.',
+          error.message ||
+          'Something went wrong.',
       );
-
     } finally {
       setLoading(false);
     }
   };
 
-
   return (
-
     <KeyboardAvoidingView
       style={styles.container}
       behavior="padding"
       keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0}
     >
-
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
         keyboardDismissMode="on-drag"
       >
-
         <View style={styles.logoContainer}>
+          <Text style={styles.logo}>🌿</Text>
 
-          <Text style={styles.logo}>
-            🌿
-          </Text>
+          <Text style={styles.title}>Create Account</Text>
 
-          <Text style={styles.title}>
-            Create Account
-          </Text>
-
-          <Text style={styles.subtitle}>
-            Join EcoCollect Today
-          </Text>
-
+          <Text style={styles.subtitle}>Join EcoCollect Today</Text>
         </View>
 
-
-
         <View style={styles.formContainer}>
-
-
-          <Text style={styles.label}>
-            Full Name
-          </Text>
+          <Text style={styles.label}>Full Name</Text>
 
           <TextInput
             style={styles.input}
@@ -122,11 +101,7 @@ const RegisterScreen = ({ navigation }: Props) => {
             onChangeText={setFullName}
           />
 
-
-
-          <Text style={styles.label}>
-            Email
-          </Text>
+          <Text style={styles.label}>Email</Text>
 
           <TextInput
             style={styles.input}
@@ -138,11 +113,7 @@ const RegisterScreen = ({ navigation }: Props) => {
             onChangeText={setEmail}
           />
 
-
-
-          <Text style={styles.label}>
-            Phone Number
-          </Text>
+          <Text style={styles.label}>Phone Number</Text>
 
           <TextInput
             style={styles.input}
@@ -153,11 +124,7 @@ const RegisterScreen = ({ navigation }: Props) => {
             onChangeText={setPhone}
           />
 
-
-
-          <Text style={styles.label}>
-            Address
-          </Text>
+          <Text style={styles.label}>Address</Text>
 
           <TextInput
             style={styles.input}
@@ -167,11 +134,7 @@ const RegisterScreen = ({ navigation }: Props) => {
             onChangeText={setAddress}
           />
 
-
-
-          <Text style={styles.label}>
-            Password
-          </Text>
+          <Text style={styles.label}>Password</Text>
 
           <TextInput
             style={styles.input}
@@ -182,11 +145,7 @@ const RegisterScreen = ({ navigation }: Props) => {
             onChangeText={setPassword}
           />
 
-
-
-          <Text style={styles.label}>
-            Confirm Password
-          </Text>
+          <Text style={styles.label}>Confirm Password</Text>
 
           <TextInput
             style={styles.input}
@@ -197,59 +156,28 @@ const RegisterScreen = ({ navigation }: Props) => {
             onChangeText={setConfirmPassword}
           />
 
-
-
           <TouchableOpacity
             style={styles.registerButton}
             onPress={handleRegister}
             disabled={loading}
           >
-
-            {
-              loading ? (
-
-                <ActivityIndicator color="#FFFFFF" />
-
-              ) : (
-
-                <Text style={styles.registerButtonText}>
-                  Register
-                </Text>
-
-              )
-            }
-
+            {loading ? (
+              <ActivityIndicator color="#FFFFFF" />
+            ) : (
+              <Text style={styles.registerButtonText}>Register</Text>
+            )}
           </TouchableOpacity>
 
-
-
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-          >
-
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <Text style={styles.loginText}>
-
               Already have an account?
-
-              <Text style={styles.loginLink}>
-                {' '}Login
-              </Text>
-
+              <Text style={styles.loginLink}> Login</Text>
             </Text>
-
           </TouchableOpacity>
-
-
         </View>
-
-
       </ScrollView>
-
-
     </KeyboardAvoidingView>
-
   );
 };
-
 
 export default RegisterScreen;
