@@ -48,7 +48,6 @@ const LoginScreen = ({ navigation }: Props) => {
       }
 
       await saveLogin(data.user, data.token);
-
     } catch (error: any) {
       Alert.alert(
         'Login Failed',
@@ -65,37 +64,22 @@ const LoginScreen = ({ navigation }: Props) => {
       behavior="padding"
       keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0}
     >
-
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="handled"
         keyboardDismissMode="on-drag"
       >
-
         <View style={styles.logoContainer}>
+          <Text style={styles.logo}>🌿</Text>
 
-          <Text style={styles.logo}>
-            🌿
-          </Text>
+          <Text style={styles.title}>EcoCollect</Text>
 
-          <Text style={styles.title}>
-            EcoCollect
-          </Text>
-
-          <Text style={styles.subtitle}>
-            Smart Waste Management System
-          </Text>
-
+          <Text style={styles.subtitle}>Smart Waste Management System</Text>
         </View>
 
-
         <View style={styles.formContainer}>
-
-          <Text style={styles.label}>
-            Email
-          </Text>
-
+          <Text style={styles.label}>Email</Text>
 
           <TextInput
             style={styles.input}
@@ -107,11 +91,7 @@ const LoginScreen = ({ navigation }: Props) => {
             onChangeText={setEmail}
           />
 
-
-          <Text style={styles.label}>
-            Password
-          </Text>
-
+          <Text style={styles.label}>Password</Text>
 
           <TextInput
             style={styles.input}
@@ -122,52 +102,28 @@ const LoginScreen = ({ navigation }: Props) => {
             onChangeText={setPassword}
           />
 
-
           <TouchableOpacity
             style={styles.loginButton}
             onPress={handleLogin}
             disabled={loading}
           >
-
-            {
-              loading ? (
-                <ActivityIndicator color="#FFFFFF" />
-              ) : (
-                <Text style={styles.loginButtonText}>
-                  Login
-                </Text>
-              )
-            }
-
+            {loading ? (
+              <ActivityIndicator color="#FFFFFF" />
+            ) : (
+              <Text style={styles.loginButtonText}>Login</Text>
+            )}
           </TouchableOpacity>
 
-
-
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Register')}
-          >
-
+          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
             <Text style={styles.registerText}>
-
               Don't have an account?
-
-              <Text style={styles.registerLink}>
-                {' '}Register
-              </Text>
-
+              <Text style={styles.registerLink}> Register</Text>
             </Text>
-
           </TouchableOpacity>
-
-
         </View>
-
-
       </ScrollView>
-
     </KeyboardAvoidingView>
   );
 };
-
 
 export default LoginScreen;
