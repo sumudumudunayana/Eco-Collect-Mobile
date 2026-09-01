@@ -7,20 +7,21 @@ const styles = StyleSheet.create({
   },
 
   scrollContainer: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    paddingHorizontal: 25,
-  },
+  flexGrow: 1,
+  justifyContent: 'center',
+  paddingHorizontal: 25,
+  paddingVertical: 30,
+},
 
   logoContainer: {
-    alignItems: 'center',
-    marginBottom: 45,
-  },
+  alignItems: 'center',
+  marginBottom: 25,
+},
 
   logo: {
-    fontSize: 70,
-    marginBottom: 15,
-  },
+  fontSize: 55,
+  marginBottom: 10,
+},
 
   title: {
     fontSize: 34,
@@ -59,14 +60,14 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    height: 55,
-    borderWidth: 1,
-    borderColor: '#CBD5E1',
-    borderRadius: 12,
-    paddingHorizontal: 18,
-    fontSize: 16,
-    marginBottom: 22,
     backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    paddingHorizontal: 15,
+    paddingVertical: 14,
+    fontSize: 16,
+    color: '#000000',
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
   },
 
   loginButton: {
@@ -105,6 +106,15 @@ const styles = StyleSheet.create({
     color: '#2E7D32',
     fontWeight: '600',
     fontSize: 15,
+  },
+
+  collectorLink: {
+    marginTop: 18,
+    textAlign: 'center',
+    fontSize: 16,
+    color: '#2E7D32',
+    fontWeight: '700',
+    textDecorationLine: 'underline',
   },
 });
 
