@@ -38,34 +38,22 @@ const SplashScreen = ({ navigation }: Props) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar
-        backgroundColor="#2E7D32"
-        barStyle="light-content"
-      />
+      <StatusBar backgroundColor="#2E7D32" barStyle="light-content" />
 
       <View style={styles.logoContainer}>
         <Text style={styles.logo}>🌿</Text>
 
         <Text style={styles.title}>EcoCollect</Text>
 
-        <Text style={styles.tagline}>
-          Smart Waste Management System
-        </Text>
+        <Text style={styles.tagline}>Smart Waste Management System</Text>
       </View>
 
       <View style={styles.footer}>
-        <ActivityIndicator
-          size="large"
-          color="#FFFFFF"
-        />
+        <ActivityIndicator size="large" color="#FFFFFF" />
 
-        <Text style={styles.loadingText}>
-          Loading...
-        </Text>
+        <Text style={styles.loadingText}>Loading...</Text>
 
-        <Text style={styles.version}>
-          Version 1.0.0
-        </Text>
+        <Text style={styles.version}>Version 1.0.0</Text>
       </View>
     </SafeAreaView>
   );
