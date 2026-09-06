@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  TouchableOpacity,
-  Text,
-  View,
-} from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 
 import styles from '../../styles/collector/ActionCardStyles';
 
@@ -31,24 +27,15 @@ const ActionCard = ({
           backgroundColor,
         },
       ]}
-      onPress={onPress}>
-
+      onPress={onPress}
+    >
       <View style={styles.iconContainer}>
-        <Text style={styles.icon}>
-          {icon}
-        </Text>
+        <Text style={styles.icon}>{icon}</Text>
       </View>
 
-      <Text style={styles.title}>
-        {title}
-      </Text>
+      <Text style={styles.title}>{title}</Text>
 
-      {subtitle ? (
-        <Text style={styles.subtitle}>
-          {subtitle}
-        </Text>
-      ) : null}
-
+      {subtitle ? <Text style={styles.subtitle}>{subtitle}</Text> : null}
     </TouchableOpacity>
   );
 };
