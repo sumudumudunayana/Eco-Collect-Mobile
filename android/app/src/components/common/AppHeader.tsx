@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -28,22 +24,14 @@ const AppHeader = ({
   const navigation = useNavigation<any>();
 
   return (
-    <SafeAreaView
-      edges={['top']}
-      style={styles.safeArea}
-    >
+    <SafeAreaView edges={['top']} style={styles.safeArea}>
       <View style={styles.container}>
-
         {/* Left Side */}
 
         <View style={styles.leftContainer}>
           {showBack ? (
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Ionicons
-                name="arrow-back"
-                size={24}
-                color="#FFFFFF"
-              />
+              <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
             </TouchableOpacity>
           ) : (
             <View style={{ width: 24 }} />
@@ -52,26 +40,19 @@ const AppHeader = ({
 
         {/* Title */}
 
-        <Text style={styles.title}>
-          {title}
-        </Text>
+        <Text style={styles.title}>{title}</Text>
 
         {/* Right Side */}
 
         <View style={styles.rightContainer}>
           {rightIcon ? (
             <TouchableOpacity onPress={onRightPress}>
-              <Ionicons
-                name={rightIcon as any}
-                size={24}
-                color="#FFFFFF"
-              />
+              <Ionicons name={rightIcon as any} size={24} color="#FFFFFF" />
             </TouchableOpacity>
           ) : (
             <View style={{ width: 24 }} />
           )}
         </View>
-
       </View>
     </SafeAreaView>
   );
