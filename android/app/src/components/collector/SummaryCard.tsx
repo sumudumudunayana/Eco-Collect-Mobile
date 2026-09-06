@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
+import { View, Text } from 'react-native';
 
 import styles from '../../styles/collector/SummaryCardStyles';
 
@@ -26,20 +23,13 @@ const SummaryCard = ({
         {
           backgroundColor,
         },
-      ]}>
+      ]}
+    >
+      <Text style={styles.icon}>{icon}</Text>
 
-      <Text style={styles.icon}>
-        {icon}
-      </Text>
+      <Text style={styles.value}>{value}</Text>
 
-      <Text style={styles.value}>
-        {value}
-      </Text>
-
-      <Text style={styles.title}>
-        {title}
-      </Text>
-
+      <Text style={styles.title}>{title}</Text>
     </View>
   );
 };
