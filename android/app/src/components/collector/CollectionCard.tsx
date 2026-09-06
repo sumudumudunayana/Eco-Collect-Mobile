@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import styles from '../../styles/collector/CollectionCardStyles';
 
@@ -42,13 +38,10 @@ const CollectionCard = ({
     <TouchableOpacity
       style={styles.container}
       activeOpacity={0.8}
-      onPress={onPress}>
-
+      onPress={onPress}
+    >
       <View style={styles.header}>
-
-        <Text style={styles.houseNo}>
-          🏠 {houseNo}
-        </Text>
+        <Text style={styles.houseNo}>🏠 {houseNo}</Text>
 
         <View
           style={[
@@ -56,32 +49,19 @@ const CollectionCard = ({
             {
               backgroundColor: getStatusColor(),
             },
-          ]}>
-
-          <Text style={styles.statusText}>
-            {status}
-          </Text>
-
+          ]}
+        >
+          <Text style={styles.statusText}>{status}</Text>
         </View>
-
       </View>
 
-      <Text style={styles.name}>
-        {residentName}
-      </Text>
+      <Text style={styles.name}>{residentName}</Text>
 
-      <Text style={styles.waste}>
-        ♻️ Waste Type : {wasteType}
-      </Text>
+      <Text style={styles.waste}>♻️ Waste Type : {wasteType}</Text>
 
       <View style={styles.footer}>
-
-        <Text style={styles.details}>
-          Tap to view details →
-        </Text>
-
+        <Text style={styles.details}>Tap to view details →</Text>
       </View>
-
     </TouchableOpacity>
   );
 };
