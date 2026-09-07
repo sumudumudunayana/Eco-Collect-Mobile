@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 type Props = {
   title: string;
@@ -14,13 +9,7 @@ type Props = {
   onPress: () => void;
 };
 
-const ProductCard = ({
-  title,
-  price,
-  category,
-  image,
-  onPress,
-}: Props) => {
+const ProductCard = ({ title, price, category, image, onPress }: Props) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -30,8 +19,8 @@ const ProductCard = ({
         padding: 16,
         marginBottom: 18,
         elevation: 4,
-      }}>
-
+      }}
+    >
       <Image
         source={{ uri: image }}
         resizeMode="cover"
@@ -47,7 +36,8 @@ const ProductCard = ({
           marginTop: 15,
           fontWeight: '700',
           fontSize: 18,
-        }}>
+        }}
+      >
         {title}
       </Text>
 
@@ -55,7 +45,8 @@ const ProductCard = ({
         style={{
           color: '#64748B',
           marginTop: 5,
-        }}>
+        }}
+      >
         {category}
       </Text>
 
@@ -65,7 +56,8 @@ const ProductCard = ({
           color: '#2E7D32',
           fontWeight: '700',
           fontSize: 20,
-        }}>
+        }}
+      >
         {price}
       </Text>
     </TouchableOpacity>
