@@ -7,7 +7,6 @@ import CitizenDashboardScreen from '../screens/citizen/CitizenDashboardScreen';
 import NotificationScreen from '../screens/citizen/NotificationScreen';
 import ProfileScreen from '../screens/citizen/ProfileScreen';
 
-
 const Tab = createBottomTabNavigator();
 
 type IconName = ComponentProps<typeof Ionicons>['name'];
@@ -44,30 +43,15 @@ const MainNavigator = () => {
               break;
           }
 
-          return (
-            <Ionicons
-              name={iconName}
-              size={size}
-              color={color}
-            />
-          );
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}
     >
-      <Tab.Screen
-        name="Home"
-        component={CitizenDashboardScreen}
-      />
+      <Tab.Screen name="Home" component={CitizenDashboardScreen} />
 
-      <Tab.Screen
-        name="Notifications"
-        component={NotificationScreen}
-      />
+      <Tab.Screen name="Notifications" component={NotificationScreen} />
 
-      <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
-      />
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 };
