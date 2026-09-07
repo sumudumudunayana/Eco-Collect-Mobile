@@ -14,7 +14,6 @@ const CollectorBottomTabNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-
         headerShown: false,
 
         tabBarActiveTintColor: '#2E7D32',
@@ -27,11 +26,9 @@ const CollectorBottomTabNavigator = () => {
         },
 
         tabBarIcon: ({ color, size }) => {
-
           let iconName: any;
 
           switch (route.name) {
-
             case 'CollectorHome':
               iconName = 'home';
               break;
@@ -48,18 +45,10 @@ const CollectorBottomTabNavigator = () => {
               iconName = 'ellipse';
           }
 
-          return (
-            <Ionicons
-              name={iconName}
-              size={size}
-              color={color}
-            />
-          );
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
-
       })}
     >
-
       <Tab.Screen
         name="CollectorHome"
         component={CollectorDashboardScreen}
@@ -83,7 +72,6 @@ const CollectorBottomTabNavigator = () => {
           title: 'Profile',
         }}
       />
-
     </Tab.Navigator>
   );
 };
