@@ -59,15 +59,13 @@ const CollectionScheduleScreen = () => {
 
   const dateKeys = Array.from(
     new Set(
-      schedules.map((item) => {
-        return new Date(item.collectionDate)
-          .toISOString()
-          .split('T')[0];
+      schedules.map(item => {
+        return new Date(item.collectionDate).toISOString().split('T')[0];
       }),
     ),
   );
 
-  const dates = dateKeys.map((dateKey) => {
+  const dates = dateKeys.map(dateKey => {
     const date = new Date(dateKey);
 
     return {
@@ -79,10 +77,8 @@ const CollectionScheduleScreen = () => {
     };
   });
 
-  const filteredSchedules = schedules.filter((item) => {
-    const dateKey = new Date(item.collectionDate)
-      .toISOString()
-      .split('T')[0];
+  const filteredSchedules = schedules.filter(item => {
+    const dateKey = new Date(item.collectionDate).toISOString().split('T')[0];
 
     return dateKey === selectedDate;
   });
@@ -97,21 +93,16 @@ const CollectionScheduleScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <AppHeader
-        title="Collection Schedule"
-        showBack
-      />
+      <AppHeader title="Collection Schedule" showBack />
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.content}>
+        contentContainerStyle={styles.content}
+      >
         <Text style={styles.month}>{monthLabel}</Text>
 
         {loading ? (
-          <ActivityIndicator
-            size="large"
-            color="#2E7D32"
-          />
+          <ActivityIndicator size="large" color="#2E7D32" />
         ) : (
           <>
             {dates.length > 0 ? (
@@ -119,21 +110,22 @@ const CollectionScheduleScreen = () => {
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 data={dates}
-                keyExtractor={(item) => item.fullDate}
+                keyExtractor={item => item.fullDate}
                 renderItem={({ item }) => (
                   <TouchableOpacity
                     style={[
                       styles.dateCard,
-                      selectedDate === item.fullDate &&
-                        styles.selectedDateCard,
+                      selectedDate === item.fullDate && styles.selectedDateCard,
                     ]}
-                    onPress={() => setSelectedDate(item.fullDate)}>
+                    onPress={() => setSelectedDate(item.fullDate)}
+                  >
                     <Text
                       style={[
                         styles.dayText,
                         selectedDate === item.fullDate &&
                           styles.selectedDateText,
-                      ]}>
+                      ]}
+                    >
                       {item.day}
                     </Text>
 
@@ -142,7 +134,8 @@ const CollectionScheduleScreen = () => {
                         styles.dateText,
                         selectedDate === item.fullDate &&
                           styles.selectedDateText,
-                      ]}>
+                      ]}
+                    >
                       {item.date}
                     </Text>
                   </TouchableOpacity>
@@ -151,9 +144,7 @@ const CollectionScheduleScreen = () => {
             ) : null}
 
             <View style={styles.summaryCard}>
-              <Text style={styles.summaryTitle}>
-                Upcoming Collections
-              </Text>
+              <Text style={styles.summaryTitle}>Upcoming Collections</Text>
 
               <Text style={styles.summaryValue}>
                 {schedules.length} Collections Scheduled
@@ -166,62 +157,46 @@ const CollectionScheduleScreen = () => {
                   textAlign: 'center',
                   marginTop: 30,
                   color: '#64748B',
-                }}>
+                }}
+              >
                 {schedules.length === 0
                   ? 'No collection schedule available for your account.'
                   : 'No collection on this date.'}
               </Text>
             ) : (
-              filteredSchedules.map((item) => (
+              filteredSchedules.map(item => (
                 <View
                   key={item.id}
                   style={[
                     styles.card,
                     {
                       borderLeftColor:
-                        item.wasteType ===
-                        'Organic Waste'
+                        item.wasteType === 'Organic Waste'
                           ? '#4CAF50'
-                          : item.wasteType ===
-                              'Recyclable Waste'
-                            ? '#2196F3'
-                            : '#795548',
+                          : item.wasteType === 'Recyclable Waste'
+                          ? '#2196F3'
+                          : '#795548',
                     },
-                  ]}>
+                  ]}
+                >
                   <View style={styles.details}>
                     <View style={styles.row}>
-                      <Text style={styles.type}>
-                        {item.wasteType}
-                      </Text>
+                      <Text style={styles.type}>{item.wasteType}</Text>
 
-                      <View
-                        style={styles.zoneBadge}>
-                        <Text
-                          style={styles.zoneText}>
-                          {item.zone}
-                        </Text>
+                      <View style={styles.zoneBadge}>
+                        <Text style={styles.zoneText}>{item.zone}</Text>
                       </View>
                     </View>
 
-                    <Text style={styles.info}>
-                      📅 {item.day}
-                    </Text>
+                    <Text style={styles.info}>📅 {item.day}</Text>
 
-                    <Text style={styles.info}>
-                      ⏰ {item.collectionTime}
-                    </Text>
+                    <Text style={styles.info}>⏰ {item.collectionTime}</Text>
 
-                    <Text style={styles.info}>
-                      📍 {item.address}
-                    </Text>
+                    <Text style={styles.info}>📍 {item.address}</Text>
 
-                    <Text style={styles.info}>
-                      👷 {item.collector.name}
-                    </Text>
+                    <Text style={styles.info}>👷 {item.collector.name}</Text>
 
-                    <Text style={styles.info}>
-                      Status: {item.status}
-                    </Text>
+                    <Text style={styles.info}>Status: {item.status}</Text>
                   </View>
                 </View>
               ))
