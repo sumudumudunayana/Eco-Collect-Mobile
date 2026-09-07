@@ -87,42 +87,37 @@ const NotificationScreen = () => {
             justifyContent: 'center',
             alignItems: 'center',
           },
-        ]}>
-        <ActivityIndicator
-          size="large"
-          color="#2E7D32"
-        />
+        ]}
+      >
+        <ActivityIndicator size="large" color="#2E7D32" />
       </SafeAreaView>
     );
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      <AppHeader
-        title="Notifications"
-        showBack
-      />
+      <AppHeader title="Notifications" showBack />
 
       <ScrollView
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
         refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={handleRefresh}
-          />
-        }>
+          <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
+        }
+      >
         {notifications.length === 0 ? (
           <View
             style={{
               alignItems: 'center',
               marginTop: 80,
-            }}>
+            }}
+          >
             <Text
               style={{
                 fontSize: 18,
                 color: '#64748B',
-              }}>
+              }}
+            >
               No Notifications Yet
             </Text>
           </View>
@@ -130,49 +125,28 @@ const NotificationScreen = () => {
           notifications.map(item => (
             <TouchableOpacity
               key={item._id}
-              onPress={() =>
-                handleNotificationPress(item._id)
-              }
-              style={[
-                styles.card,
-                !item.isRead &&
-                  styles.unreadCard,
-              ]}>
+              onPress={() => handleNotificationPress(item._id)}
+              style={[styles.card, !item.isRead && styles.unreadCard]}
+            >
               <View style={styles.iconContainer}>
-                <Text style={styles.icon}>
-                  {getIcon(item.type)}
-                </Text>
+                <Text style={styles.icon}>{getIcon(item.type)}</Text>
               </View>
 
               <View style={styles.details}>
-                <View
-                  style={styles.headerRow}>
-                  <Text style={styles.title}>
-                    {item.title}
-                  </Text>
+                <View style={styles.headerRow}>
+                  <Text style={styles.title}>{item.title}</Text>
 
                   {!item.isRead && (
-                    <View
-                      style={styles.badge}>
-                      <Text
-                        style={
-                          styles.badgeText
-                        }>
-                        NEW
-                      </Text>
+                    <View style={styles.badge}>
+                      <Text style={styles.badgeText}>NEW</Text>
                     </View>
                   )}
                 </View>
 
-                <Text
-                  style={styles.message}>
-                  {item.message}
-                </Text>
+                <Text style={styles.message}>{item.message}</Text>
 
                 <Text style={styles.time}>
-                  {new Date(
-                    item.createdAt,
-                  ).toLocaleString()}
+                  {new Date(item.createdAt).toLocaleString()}
                 </Text>
               </View>
             </TouchableOpacity>
