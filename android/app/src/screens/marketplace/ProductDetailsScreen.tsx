@@ -12,11 +12,7 @@ import {
 import AppHeader from '../../components/common/AppHeader';
 import styles from '../../styles/marketplace/ProductDetailsStyles';
 
-import {
-  useNavigation,
-  useRoute,
-  RouteProp,
-} from '@react-navigation/native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
@@ -25,13 +21,9 @@ import { AuthStackParamList } from '../../navigation/AuthNavigator';
 import { getProductById } from '../../services/productService';
 import { useCart } from '../../context/CartContext';
 
-type NavigationProp =
-  NativeStackNavigationProp<AuthStackParamList>;
+type NavigationProp = NativeStackNavigationProp<AuthStackParamList>;
 
-type ProductRouteProp = RouteProp<
-  AuthStackParamList,
-  'ProductDetails'
->;
+type ProductRouteProp = RouteProp<AuthStackParamList, 'ProductDetails'>;
 
 const ProductDetailsScreen = () => {
   const navigation = useNavigation<NavigationProp>();
@@ -70,11 +62,9 @@ const ProductDetailsScreen = () => {
             justifyContent: 'center',
             alignItems: 'center',
           },
-        ]}>
-        <ActivityIndicator
-          size="large"
-          color="#2E7D32"
-        />
+        ]}
+      >
+        <ActivityIndicator size="large" color="#2E7D32" />
       </SafeAreaView>
     );
   }
@@ -88,7 +78,8 @@ const ProductDetailsScreen = () => {
             justifyContent: 'center',
             alignItems: 'center',
           },
-        ]}>
+        ]}
+      >
         <Text>Product not found.</Text>
       </SafeAreaView>
     );
@@ -96,14 +87,12 @@ const ProductDetailsScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <AppHeader
-        title="Product Details"
-        showBack
-      />
+      <AppHeader title="Product Details" showBack />
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.content}>
+        contentContainerStyle={styles.content}
+      >
         <Image
           source={{
             uri: product.image,
@@ -116,65 +105,39 @@ const ProductDetailsScreen = () => {
           }}
         />
 
-        <Text style={styles.title}>
-          {product.title}
-        </Text>
+        <Text style={styles.title}>{product.title}</Text>
 
-        <Text style={styles.category}>
-          {product.category}
-        </Text>
+        <Text style={styles.category}>{product.category}</Text>
 
-        <Text style={styles.rating}>
-          ⭐ Eco Friendly Product
-        </Text>
+        <Text style={styles.rating}>⭐ Eco Friendly Product</Text>
 
-        <Text style={styles.price}>
-          LKR {product.price}
-        </Text>
+        <Text style={styles.price}>LKR {product.price}</Text>
 
         <View style={styles.card}>
-          <Text style={styles.heading}>
-            Description
-          </Text>
+          <Text style={styles.heading}>Description</Text>
 
-          <Text style={styles.description}>
-            {product.description}
-          </Text>
+          <Text style={styles.description}>{product.description}</Text>
         </View>
 
         <View style={styles.card}>
-          <Text style={styles.heading}>
-            Product Details
-          </Text>
+          <Text style={styles.heading}>Product Details</Text>
 
           <View style={styles.row}>
-            <Text style={styles.label}>
-              Category
-            </Text>
+            <Text style={styles.label}>Category</Text>
 
-            <Text style={styles.value}>
-              {product.category}
-            </Text>
+            <Text style={styles.value}>{product.category}</Text>
           </View>
 
           <View style={styles.row}>
-            <Text style={styles.label}>
-              Stock
-            </Text>
+            <Text style={styles.label}>Stock</Text>
 
-            <Text style={styles.value}>
-              {product.stock}
-            </Text>
+            <Text style={styles.value}>{product.stock}</Text>
           </View>
 
           <View style={styles.row}>
-            <Text style={styles.label}>
-              Price
-            </Text>
+            <Text style={styles.label}>Price</Text>
 
-            <Text style={styles.value}>
-              LKR {product.price}
-            </Text>
+            <Text style={styles.value}>LKR {product.price}</Text>
           </View>
         </View>
 
@@ -183,7 +146,8 @@ const ProductDetailsScreen = () => {
           onPress={async () => {
             await addToCart(product);
             navigation.navigate('Cart');
-          }}>
+          }}
+        >
           <Text style={styles.buttonText}>
             Add to Cart {itemCount > 0 ? `(${itemCount})` : ''}
           </Text>
@@ -194,10 +158,9 @@ const ProductDetailsScreen = () => {
           onPress={async () => {
             await addToCart(product);
             navigation.navigate('Cart');
-          }}>
-          <Text style={styles.buttonText}>
-            Buy Now
-          </Text>
+          }}
+        >
+          <Text style={styles.buttonText}>Buy Now</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
