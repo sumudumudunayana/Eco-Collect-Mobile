@@ -53,10 +53,7 @@ const CollectorNotificationScreen = () => {
         ),
       );
     } catch (error) {
-      Alert.alert(
-        'Error',
-        'Unable to update notification.',
-      );
+      Alert.alert('Error', 'Unable to update notification.');
     }
   };
 
@@ -67,63 +64,51 @@ const CollectorNotificationScreen = () => {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-        }}>
-        <ActivityIndicator
-          size="large"
-          color="#2E7D32"
-        />
+        }}
+      >
+        <ActivityIndicator size="large" color="#2E7D32" />
       </SafeAreaView>
     );
   }
 
   return (
     <SafeAreaView style={styles.container}>
-      <AppHeader
-        title="Notifications"
-        showBack
-      />
+      <AppHeader title="Notifications" showBack />
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.content}>
+        contentContainerStyle={styles.content}
+      >
         {notifications.length === 0 ? (
           <Text
             style={{
               textAlign: 'center',
               marginTop: 50,
               fontSize: 16,
-            }}>
+            }}
+          >
             No notifications available.
           </Text>
         ) : (
           notifications.map(item => (
             <TouchableOpacity
               key={item._id}
-              onPress={() =>
-                !item.isRead &&
-                handleRead(item._id)
-              }>
+              onPress={() => !item.isRead && handleRead(item._id)}
+            >
               <View
                 style={[
                   styles.card,
                   {
-                    backgroundColor: item.isRead
-                      ? '#FFFFFF'
-                      : '#E8F5E9',
+                    backgroundColor: item.isRead ? '#FFFFFF' : '#E8F5E9',
                   },
-                ]}>
-                <Text style={styles.title}>
-                  {item.title}
-                </Text>
+                ]}
+              >
+                <Text style={styles.title}>{item.title}</Text>
 
-                <Text style={styles.message}>
-                  {item.message}
-                </Text>
+                <Text style={styles.message}>{item.message}</Text>
 
                 <Text style={styles.time}>
-                  {new Date(
-                    item.createdAt,
-                  ).toLocaleString()}
+                  {new Date(item.createdAt).toLocaleString()}
                 </Text>
               </View>
             </TouchableOpacity>
