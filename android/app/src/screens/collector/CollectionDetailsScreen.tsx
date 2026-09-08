@@ -187,8 +187,6 @@ const CollectionDetailsScreen = () => {
         >
           <Text style={styles.buttonText}>Mark as Completed</Text>
         </TouchableOpacity>
-
-       
       </ScrollView>
     </SafeAreaView>
   );
