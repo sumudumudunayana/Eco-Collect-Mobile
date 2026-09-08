@@ -92,10 +92,12 @@ const TruckTrackingScreen = () => {
   };
 
   const validStops = (route?.stops || []).filter(
-    item => typeof item?.latitude === 'number' && typeof item?.longitude === 'number',
+    item =>
+      typeof item?.latitude === 'number' && typeof item?.longitude === 'number',
   ) as RouteStop[];
 
-  const truckLocation = route?.truck?.currentLocation || validStops[0] || defaultLocation;
+  const truckLocation =
+    route?.truck?.currentLocation || validStops[0] || defaultLocation;
   const routeDestination = validStops[validStops.length - 1] || truckLocation;
 
   const openGoogleMaps = () => {
@@ -110,7 +112,9 @@ const TruckTrackingScreen = () => {
       .map(stop => `${stop.latitude},${stop.longitude}`)
       .join('|');
 
-    const url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}${waypoints ? `&waypoints=${encodeURIComponent(waypoints)}` : ''}`;
+    const url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}${
+      waypoints ? `&waypoints=${encodeURIComponent(waypoints)}` : ''
+    }`;
     Linking.openURL(url);
   };
 
@@ -120,7 +124,8 @@ const TruckTrackingScreen = () => {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.content}>
+        contentContainerStyle={styles.content}
+      >
         {loading ? (
           <View style={{ paddingTop: 40 }}>
             <ActivityIndicator size="large" color="#2E7D32" />
@@ -136,7 +141,10 @@ const TruckTrackingScreen = () => {
                   : 'The truck is currently tracking around Colombo city.'}
               </Text>
 
-              <TouchableOpacity style={styles.mapButton} onPress={openGoogleMaps}>
+              <TouchableOpacity
+                style={styles.mapButton}
+                onPress={openGoogleMaps}
+              >
                 <Text style={styles.mapButtonText}>View Map Route</Text>
               </TouchableOpacity>
             </View>
@@ -146,24 +154,28 @@ const TruckTrackingScreen = () => {
 
               <View style={styles.row}>
                 <Text style={styles.label}>Truck Number</Text>
-                <Text style={styles.value}>{route?.truck?.vehicleNumber || 'Not available'}</Text>
-              </View>
-
-              <View style={styles.row}>
-                <Text style={styles.label}>Driver</Text>
-                <Text style={styles.value}>{route?.collector?.fullName || 'Collector on route'}</Text>
-              </View>
-
-              <View style={styles.row}>
-                <Text style={styles.label}>Current Location</Text>
                 <Text style={styles.value}>
-                  {route?.area || 'Live route'}
+                  {route?.truck?.vehicleNumber || 'Not available'}
                 </Text>
               </View>
 
               <View style={styles.row}>
+                <Text style={styles.label}>Driver</Text>
+                <Text style={styles.value}>
+                  {route?.collector?.fullName || 'Collector on route'}
+                </Text>
+              </View>
+
+              <View style={styles.row}>
+                <Text style={styles.label}>Current Location</Text>
+                <Text style={styles.value}>{route?.area || 'Live route'}</Text>
+              </View>
+
+              <View style={styles.row}>
                 <Text style={styles.label}>Route Status</Text>
-                <Text style={styles.value}>{route?.status || route?.truck?.status || 'On Route'}</Text>
+                <Text style={styles.value}>
+                  {route?.status || route?.truck?.status || 'On Route'}
+                </Text>
               </View>
             </View>
 
@@ -172,17 +184,25 @@ const TruckTrackingScreen = () => {
 
               <View style={styles.row}>
                 <Text style={styles.label}>Route Name</Text>
-                <Text style={styles.value}>{route?.routeName || 'Active route'}</Text>
+                <Text style={styles.value}>
+                  {route?.routeName || 'Active route'}
+                </Text>
               </View>
 
               <View style={styles.row}>
                 <Text style={styles.label}>Estimated Arrival</Text>
-                <Text style={styles.value}>{route?.estimatedTime || 'Checking route'}</Text>
+                <Text style={styles.value}>
+                  {route?.estimatedTime || 'Checking route'}
+                </Text>
               </View>
 
               <View style={styles.row}>
                 <Text style={styles.label}>Stops</Text>
-                <Text style={styles.value}>{validStops.length > 0 ? `${validStops.length} stops` : 'Route in progress'}</Text>
+                <Text style={styles.value}>
+                  {validStops.length > 0
+                    ? `${validStops.length} stops`
+                    : 'Route in progress'}
+                </Text>
               </View>
             </View>
 
