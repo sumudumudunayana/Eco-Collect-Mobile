@@ -29,7 +29,10 @@ const CheckoutScreen = () => {
 
   const handlePlaceOrder = async () => {
     if (!name.trim() || !phone.trim() || !address.trim()) {
-      Alert.alert('Missing details', 'Please fill in your delivery information.');
+      Alert.alert(
+        'Missing details',
+        'Please fill in your delivery information.',
+      );
       return;
     }
 
@@ -46,7 +49,10 @@ const CheckoutScreen = () => {
     <SafeAreaView style={styles.container}>
       <AppHeader title="Checkout" showBack />
 
-      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.content}
+      >
         <Text style={styles.sectionTitle}>Delivery Information</Text>
 
         <TextInput
@@ -83,7 +89,9 @@ const CheckoutScreen = () => {
               <Text style={styles.itemText}>
                 {item.title} x {item.quantity}
               </Text>
-              <Text style={styles.itemText}>LKR {item.price * item.quantity}</Text>
+              <Text style={styles.itemText}>
+                LKR {item.price * item.quantity}
+              </Text>
             </View>
           ))}
 
