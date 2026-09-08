@@ -14,10 +14,7 @@ import AppHeader from '../../components/common/AppHeader';
 
 import styles from '../../styles/collector/CollectorProfileStyles';
 
-import {
-  getProfile,
-  updateProfile,
-} from '../../services/profileService';
+import { getProfile, updateProfile } from '../../services/profileService';
 
 import { useAuth } from '../../context/AuthContext';
 
@@ -67,15 +64,11 @@ const CollectorProfileScreen = () => {
 
       await updateUser(data.user);
 
-      Alert.alert(
-        'Success',
-        'Profile updated successfully.',
-      );
+      Alert.alert('Success', 'Profile updated successfully.');
     } catch (error: any) {
       Alert.alert(
         'Error',
-        error?.response?.data?.message ||
-          'Unable to update profile.',
+        error?.response?.data?.message || 'Unable to update profile.',
       );
     } finally {
       setSaving(false);
@@ -93,11 +86,9 @@ const CollectorProfileScreen = () => {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-        }}>
-        <ActivityIndicator
-          size="large"
-          color="#2E7D32"
-        />
+        }}
+      >
+        <ActivityIndicator size="large" color="#2E7D32" />
       </SafeAreaView>
     );
   }
@@ -108,7 +99,8 @@ const CollectorProfileScreen = () => {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.content}>
+        contentContainerStyle={styles.content}
+      >
         <View style={styles.profileCard}>
           <View style={styles.avatar}>
             <Text style={styles.avatarText}>
@@ -118,15 +110,11 @@ const CollectorProfileScreen = () => {
 
           <Text style={styles.name}>{fullName}</Text>
 
-          <Text style={styles.role}>
-            Waste Collection Officer
-          </Text>
+          <Text style={styles.role}>Waste Collection Officer</Text>
         </View>
 
         <View style={styles.card}>
-          <Text style={styles.sectionTitle}>
-            Personal Information
-          </Text>
+          <Text style={styles.sectionTitle}>Personal Information</Text>
 
           <Text style={styles.label}>Full Name</Text>
 
@@ -138,11 +126,7 @@ const CollectorProfileScreen = () => {
 
           <Text style={styles.label}>Email</Text>
 
-          <TextInput
-            style={styles.input}
-            value={email}
-            editable={false}
-          />
+          <TextInput style={styles.input} value={email} editable={false} />
 
           <Text style={styles.label}>Phone</Text>
 
@@ -162,32 +146,23 @@ const CollectorProfileScreen = () => {
 
           <Text style={styles.label}>Role</Text>
 
-          <TextInput
-            style={styles.input}
-            value={role}
-            editable={false}
-          />
+          <TextInput style={styles.input} value={role} editable={false} />
         </View>
 
         <TouchableOpacity
           style={styles.actionButton}
           disabled={saving}
-          onPress={handleSave}>
+          onPress={handleSave}
+        >
           {saving ? (
             <ActivityIndicator color="#FFFFFF" />
           ) : (
-            <Text style={styles.actionText}>
-              Save Changes
-            </Text>
+            <Text style={styles.actionText}>Save Changes</Text>
           )}
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.logoutButton}
-          onPress={handleLogout}>
-          <Text style={styles.logoutText}>
-            Logout
-          </Text>
+        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+          <Text style={styles.logoutText}>Logout</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
