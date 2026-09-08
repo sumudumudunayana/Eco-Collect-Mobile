@@ -22,7 +22,6 @@ api.interceptors.request.use(
   error => Promise.reject(error),
 );
 
-
 api.interceptors.request.use(
   async config => {
     const token = await AsyncStorage.getItem('token');
