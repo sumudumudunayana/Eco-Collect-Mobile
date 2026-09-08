@@ -53,7 +53,6 @@ export const updateCollectionStatus = async (
   return response.data;
 };
 
-
 export const getCollectorCollections = async () => {
   const response = await api.get('/collections/collector');
   return response.data;
