@@ -100,7 +100,10 @@ const CartScreen = () => {
         </View>
 
         <TouchableOpacity
-          style={[styles.checkoutButton, cart.length === 0 && styles.disabledButton]}
+          style={[
+            styles.checkoutButton,
+            cart.length === 0 && styles.disabledButton,
+          ]}
           onPress={() => cart.length > 0 && navigation.navigate('Checkout')}
           disabled={cart.length === 0}
         >
