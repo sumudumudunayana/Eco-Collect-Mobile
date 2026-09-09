@@ -22,16 +22,10 @@ export const getCollectionById = async (id: string) => {
    UPDATE COLLECTION STATUS
 ============================ */
 
-export const updateCollectionStatus = async (
-  id: string,
-  status: string,
-) => {
-  const response = await api.put(
-    `/collections/${id}/status`,
-    {
-      status,
-    },
-  );
+export const updateCollectionStatus = async (id: string, status: string) => {
+  const response = await api.put(`/collections/${id}/status`, {
+    status,
+  });
 
   return response.data;
 };
