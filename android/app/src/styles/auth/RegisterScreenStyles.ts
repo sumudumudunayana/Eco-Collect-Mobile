@@ -6,22 +6,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#F7FAFC',
   },
 
- scrollContainer: {
-  flexGrow: 1,
-  justifyContent: 'center',
-  paddingHorizontal: 25,
-  paddingVertical: 40,
-},
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 25,
+    paddingVertical: 40,
+  },
 
   logoContainer: {
-  alignItems: 'center',
-  marginBottom: 25,
-},
+    alignItems: 'center',
+    marginBottom: 25,
+  },
 
   logo: {
-  fontSize: 55,
-  marginBottom: 10,
-},
+    fontSize: 55,
+    marginBottom: 10,
+  },
 
   title: {
     fontSize: 32,
