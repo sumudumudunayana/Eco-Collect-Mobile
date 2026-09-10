@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-
   container: {
     width: '47%',
     borderRadius: 18,
@@ -49,7 +48,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 18,
   },
-
 });
 
 export default styles;
