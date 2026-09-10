@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-
   container: {
     backgroundColor: '#FFFFFF',
     borderRadius: 18,
@@ -67,7 +66,6 @@ const styles = StyleSheet.create({
     color: '#2E7D32',
     fontWeight: '700',
   },
-
 });
 
 export default styles;
