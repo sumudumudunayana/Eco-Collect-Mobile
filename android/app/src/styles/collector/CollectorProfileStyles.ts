@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#F5F7FA',
@@ -110,16 +109,15 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 
-input: {
-  backgroundColor: '#FFFFFF',
-  borderRadius: 12,
-  paddingHorizontal: 15,
-  height: 50,
-  marginBottom: 12,
-  borderWidth: 1,
-  borderColor: '#E2E8F0',
-},
-
+  input: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    paddingHorizontal: 15,
+    height: 50,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+  },
 });
 
 export default styles;
