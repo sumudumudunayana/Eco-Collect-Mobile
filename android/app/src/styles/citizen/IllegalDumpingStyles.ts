@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#F8FAFC',
@@ -14,15 +13,10 @@ const styles = StyleSheet.create({
 
   imageBox: {
     backgroundColor: '#FFFFFF',
-
     borderRadius: 24,
-
     paddingVertical: 35,
-
     alignItems: 'center',
-
     marginBottom: 30,
-
     shadowColor: '#000',
     shadowOpacity: 0.08,
     shadowRadius: 10,
@@ -40,11 +34,8 @@ const styles = StyleSheet.create({
 
   imageTitle: {
     marginTop: 15,
-
     fontSize: 22,
-
     fontWeight: '700',
-
     color: '#1E293B',
   },
 
@@ -192,7 +183,6 @@ const styles = StyleSheet.create({
 
     fontWeight: '700',
   },
-
 });
 
 export default styles;
