@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: '#F5F7FA',
@@ -38,7 +37,6 @@ const styles = StyleSheet.create({
     color: '#64748B',
     textAlign: 'right',
   },
-
 });
 
 export default styles;
