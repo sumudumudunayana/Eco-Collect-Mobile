@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-
   card: {
     width: '47%',
     backgroundColor: '#FFFFFF',
@@ -61,7 +60,6 @@ const styles = StyleSheet.create({
 
     color: '#64748B',
   },
-
 });
 
 export default styles;
