@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-
   safeArea: {
     backgroundColor: '#2E7D32',
   },
@@ -40,7 +39,6 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '700',
   },
-
 });
 
 export default styles;
